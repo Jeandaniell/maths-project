@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+##
+## EPITECH PROJECT, 2022
+## 209poll
+## File description:
+## 209poll
+##
+
+U='%]'
+T='%; '
+S='['
+R=0.0
+Q=int
+N=quit
+F='%.2f'
+B=''
+A=print
+from os import sys as D
+from math import sqrt as I
+def G(convertisser,Str):
+	try:A=convertisser(Str)
+	except:N(84)
+	return A
+def E(nb,min=R,max=100.0):
+	if nb>max:return 100.0
+	elif nb<min:return R
+	else:return nb
+def O():
+	if len(D.argv)!=4:N(84)
+	A=G(Q,D.argv[1]);B=G(Q,D.argv[2]);C=G(float,D.argv[3])
+	if A<=0 or B<=0 or B>A or C<0 or C>100:N(84)
+	return A,B,C
+def P(pop,sample,intent):A=sample;B=intent/100;C=B*(1-B)/A*((pop-A)/(pop-1));return C
+J,K,C=O()
+H=P(J,K,C)
+L=2*1.96*I(H)/2*100
+M=2*2.58*I(H)/2*100
+A('Population size:\t',J,sep=B)
+A('Sample size:\t\t',K,sep=B)
+A('Voting intentions:\t',F%C,'%',sep=B)
+A('Variance:\t\t','%.6f'%H,sep=B)
+A('95% confidence interval: ',end=B)
+A(S,F%E(C-L),T,F%E(C+L),U,sep=B)
+A('99% confidence interval: ',end=B)
+A(S,F%E(C-M),T,F%E(C+M),U,sep=B)
